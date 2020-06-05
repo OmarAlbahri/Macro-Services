@@ -1,0 +1,33 @@
+Sub Macro13()
+'
+' Macro13 Macro
+'
+'
+Selection.HomeKey Unit:=wdStory
+Selection.Find.ClearFormatting
+Selection.Find.Replacement.ClearFormatting
+        With Selection.Find
+            .Text = "ّ"
+            .Replacement.Text = ""
+            .Forward = True
+            .Wrap = wdFindStop
+            .Format = False
+            .MatchCase = False
+            .MatchWholeWord = False
+            .MatchKashida = False
+            .MatchDiacritics = False
+            .MatchAlefHamza = False
+            .MatchControl = False
+            .MatchWildcards = False
+            .MatchSoundsLike = False
+            .MatchAllWordForms = False
+        End With
+Do While Selection.Find.Execute = True
+             Selection.TypeBackspace
+             Selection.MoveLeft Unit:=wdCharacter, Count:=1
+             Selection.TypeText Text:="ّ"
+ 
+Loop
+
+        
+End Sub
